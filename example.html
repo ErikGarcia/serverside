@@ -1,0 +1,46 @@
+<html>
+	<head> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	</head> 
+	
+	<body>
+	TESTING WEB SOCKET
+	</body>
+	
+	<script type="text/javascript"> 
+	$(document).ready(function() {  
+		
+		// Check if WS is sopported by the browser 
+		if (Modernizr.websockets)
+		{
+			// Create WS
+			var ws = new WebSocket("ws://127.0.0.7:8000/"); // Where the express server is (NODEJS server)
+			
+			// Send message to WS
+			ws.onopen = function () {
+				setInterval(function() {
+					ws.send('192.168.1.29'); // IP ADDRESS - Where the IPPad is
+				}, 1000);
+		    };
+			
+		    // When WS get a response
+			ws.onmessage = function (data) {
+				console.log(data);
+				console.log(data.data);
+				// TODO - parse data
+			};
+			
+			// When error
+			ws.onerror = function () {
+				// TODO - CALL LOOPED AJAX REQUESTS
+				console.log('error');
+			};
+		}
+		else
+		{
+			// TODO - CALL LOOPED AJAX REQUESTS
+		}
+	});
+	</script>
+</html>

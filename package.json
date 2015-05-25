@@ -1,0 +1,15 @@
+{
+    "name": "WebSockets",
+    "version": "0.0.0",
+    "description": "WebSockets Module",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest",
+        "jade": "latest",
+        "websocket": "latest",
+        "ws": "latest",
+        "exec": "latest",
+        "moment": "latest"
+    },
+    "author": "Erik Garcia"
+}
