@@ -9,7 +9,8 @@
         "websocket": "latest",
         "ws": "latest",
         "exec": "latest",
-        "moment": "latest"
+        "moment": "latest",
+        "string-to-json": "latest"
     },
     "author": "Erik Garcia"
 }
