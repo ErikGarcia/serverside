@@ -1,5 +1,5 @@
 <?php
-	include 'Ippad.php';
+	include 'vendor/Ippad.php';
 		
 	$newCall = Ippad::newCall($_SERVER['argv'][1]);
 	$idCall = Ippad::idCall($_SERVER['argv'][1]);
