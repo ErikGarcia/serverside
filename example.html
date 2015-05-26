@@ -17,29 +17,31 @@
 			// Create WS
 			var ws = new WebSocket("ws://127.0.0.7:8000/"); // Where the express server is (NODEJS server)
 			
+			var interval = null;
+			
 			// Send message to WS
 			ws.onopen = function () {
-				setInterval(function() {
+				interval = setInterval(function() {
 					ws.send('192.168.1.29'); // IP ADDRESS - Where the IPPad is
 				}, 1000);
 		    };
 			
 		    // When WS get a response
 			ws.onmessage = function (data) {
-				console.log(data);
 				console.log(data.data);
-				// TODO - parse data
 			};
 			
-			// When error
-			ws.onerror = function () {
+			ws.onclose = function () {
+				clearInterval(interval);
+				
 				// TODO - CALL LOOPED AJAX REQUESTS
-				console.log('error');
+				setInterval(function() { console.log('error2'); }, 1000);
 			};
 		}
 		else
 		{
 			// TODO - CALL LOOPED AJAX REQUESTS
+			setInterval(function() { console.log('error1'); }, 1000);
 		}
 	});
 	</script>

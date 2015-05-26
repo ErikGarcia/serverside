@@ -10,7 +10,8 @@
         "ws": "latest",
         "exec": "latest",
         "moment": "latest",
-        "string-to-json": "latest"
+        "string-to-json": "latest",
+        "validator": "latest"
     },
     "author": "Erik Garcia"
 }
