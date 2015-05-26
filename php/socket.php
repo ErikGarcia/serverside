@@ -7,8 +7,8 @@
 		$json['newCall'] = $newCall;
 		$json['idCall'] = $idCall;
 	}else{
-		$json['newCall'] = 'Error';
-		$json['idCall'] = 'Error';
+		$json['newCall'] = 'fail';
+		$json['idCall'] = 'fail';
 	}
 
 	echo json_encode($json, true);
