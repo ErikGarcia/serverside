@@ -10,11 +10,11 @@ var WebSocketServer = require('ws').Server
 	, port = process.env.PORT || 8000;
 app.use(express.static(__dirname + '/'));
 
+console.log(require('path').dirname(require.main.filename));
+
 // Create Server
 var server = http.createServer(app);
 server.listen(port);
-
-console.log('http server listening on %d', port);
 
 // Create WS
 var wss = new WebSocketServer({server: server});
@@ -35,7 +35,7 @@ wss.on('connection', function(ws) {
 				console.log(moment().format() + ' - websocket message' +': ' + ipAddrees);
 				
 				// Sent a UDP request by PHP
-				exec('php ./php/call-status.php ' + ipAddrees, function(error, stdout, stderr) {
+				exec('php '+require('path').dirname(require.main.filename)+'/php/call-status.php ' + ipAddrees, function(error, stdout, stderr) {
 					
 					if(lastResponse != stdout)
 					{

@@ -35,7 +35,7 @@ wss.on('connection', function(ws) {
 				console.log(moment().format() + ' - websocket message' +': ' + ipAddrees);
 				
 				// Sent a UDP request by PHP
-				exec('php ./php/call-color-status.php ' + ipAddrees, function(error, stdout, stderr) {
+				exec('php '+require('path').dirname(require.main.filename)+'/php/call-color-status.php ' + ipAddrees, function(error, stdout, stderr) {
 					
 					if(lastResponse != stdout)
 					{
